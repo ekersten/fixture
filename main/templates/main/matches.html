@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<ul>
+	{% for match in match_list %}
+	<li>{{ match.home.name }} vs. {{ match.away.name }} <strong>{{ match.datetime|date:'d/m H:i' }}</strong></li>
+	{% endfor %}
+	</ul>
+{% endblock %}
