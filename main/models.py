@@ -1,4 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+
+class Profile(models.Model):
+	user = models.OneToOneField(User)
+	dni = models.PositiveIntegerField(unique=True)
+
 
 class Group(models.Model):
 	name = models.CharField(max_length=1)
@@ -28,4 +35,4 @@ class Match(models.Model):
 	datetime = models.DateTimeField(verbose_name='Date')
 
 	def __unicode__(self):
-		return self.home.name + ' vs. ' + self.away.name + ' [' + self.datetime.strftime('%d/%m %H:%M') + ']'
+		return self.home.name + ' vs. ' + self.away.name + ' [' + self.datetime.strftime('%d/%m %H:%M')+ ']'
